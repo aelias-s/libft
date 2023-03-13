@@ -6,31 +6,33 @@
 /*   By: aelias-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:15:05 by aelias-s          #+#    #+#             */
-/*   Updated: 2023/03/13 12:52:09 by aelias-s         ###   ########.fr       */
+/*   Updated: 2023/03/13 12:54:58 by aelias-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, unsigned int size)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dstlen;
-	size_t	srclen;
+	int		i;
+	int		j;
+	char	*str;
 
-	srclen = ft_strlen(src);
-	dstlen = ft_strlen(dest);
-	if (size <= dstlen)
-		return (size + srclen);
-	i = dstlen;
-	j = 0;
-	while (src[j] != '\0' && i < size - 1)
+	str = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char)) + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		dest[i] = src[j];
+		str[i] = s1[i];
 		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
 		j++;
 	}
-	dest[i] = '\0';
-	return (dstlen + srclen);
+	str[j + i] = '\0';
+	return (str);
 }

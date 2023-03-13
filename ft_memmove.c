@@ -28,6 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	while (i < len)
 	{
 		*(unsigned char *)(dest + i) = *(aux + i);
+		i++;
 	}
 	return (dest);
 }

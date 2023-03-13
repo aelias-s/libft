@@ -6,7 +6,7 @@
 /*   By: aelias-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:15:05 by aelias-s          #+#    #+#             */
-/*   Updated: 2023/03/07 12:38:15 by aelias-s         ###   ########.fr       */
+/*   Updated: 2023/03/13 12:51:47 by aelias-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	*ft_strchr(char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 		{
 			return (s + i);
 		}
 		i++;
 	}
+	if (s[i] == (char)c)
+		return (s + i);
 	return (0);
 }
