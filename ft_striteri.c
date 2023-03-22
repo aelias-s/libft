@@ -6,23 +6,21 @@
 /*   By: aelias-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:15:05 by aelias-s          #+#    #+#             */
-/*   Updated: 2023/03/07 17:09:55 by aelias-s         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:36:13 by aelias-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+void	ft_striteri(char *s, void (*funcion)(unsigned int n, char *c))
 {
 	size_t	i;
 
 	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < len)
+	while (s[i])
 	{
-		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+		funcion(i, &s[i]);
 		i++;
 	}
-	return (dest);
 }

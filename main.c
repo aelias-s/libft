@@ -4,13 +4,22 @@
 #include <string.h>
 #include <stdlib.h>
 
-int main(void)
+int main()
 {
-    char *dest = "tripouille";
-    char *src = "patata";
-    size_t n = ft_strlcpy(dest, src, 4);
-    printf("%s : %lu", dest, n);
-    //free(s);
-
-    return(0);
+	char s[] = "Ho la mu do";
+	char **result = ft_split(s, ' ');
+	int i = 0;
+	while (result[i])
+	{
+		printf("%s\n", result[i]);
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	
+	return 0;
 }
+/*
+	if (s1[0] == '\0')
+		return ((char *)s1 + (ft_strlen(s1)));
+		*/

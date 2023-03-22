@@ -6,23 +6,24 @@
 /*   By: aelias-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:15:05 by aelias-s          #+#    #+#             */
-/*   Updated: 2023/03/07 17:09:55 by aelias-s         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:30:04 by aelias-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < len)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
-		i++;
+		if (s[i] == (char)c)
+		{
+			return ((char *)s + i);
+		}
+		i--;
 	}
-	return (dest);
+	return (0);
 }

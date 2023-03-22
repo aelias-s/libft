@@ -23,13 +23,12 @@ int	ft_atoi(const char *str)
 	num = 0;
 	while ((str[i] > 8 && str[i] < 14) || str[i] == ' ')
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		m = -1;
+		if (str[i] == '-')
+			m = -1;
 		i++;
 	}
-	if (str[i] == '+')
-		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = (num * 10) + (str[i] - 48);

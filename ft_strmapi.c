@@ -6,23 +6,29 @@
 /*   By: aelias-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:15:05 by aelias-s          #+#    #+#             */
-/*   Updated: 2023/03/07 17:09:55 by aelias-s         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:36:13 by aelias-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+char	*ft_strmapi(const char *s, char (*funcion)(unsigned int n, char c))
 {
+	char	*patata;
 	size_t	i;
 
-	i = 0;
-	if (!dest && !src)
+	if (!s || !funcion)
 		return (NULL);
-	while (i < len)
+	patata = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!patata)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
+		patata[i] = funcion(i, s[i]);
 		i++;
 	}
-	return (dest);
+	patata[i] = '\0';
+	return (patata);
 }
